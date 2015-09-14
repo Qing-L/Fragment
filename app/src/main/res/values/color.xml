@@ -13,15 +13,17 @@
     <color name="clouds">#ecf0f1</color>
     <color name="midnight_blue">#141d26</color>
 
-    <color name="setting_background">#315a7b</color> <!-- 设置界面背景 -->
-    <color name="main_to_setting">#597baa</color> <!-- 设置界面背景 -->
+
+    <color name="setting_background">#2b2b2b</color> <!-- 设置界面背景 -->
+    <color name="main_to_setting">#2b2b2b</color> <!-- 设置界面背景 -->
     <color name="setting_textbg1">#20FFFFFF</color> <!-- 设置界面文本背景 -->
     <color name="setting_textbg2">#20DDDDDD</color> <!-- 设置界面文本背景 -->
     <color name="setting_text">#EEEEEE</color> <!-- 设置界面文本颜色 -->
 
 
     <color name="main_bg">#EEEEEE</color> <!-- 设置界面背景 -->
-    <color name="addmemory_bg">#eeeeee</color> <!-- 设置界面背景 -->
+    <color name="main_to_addmemory">#b8f1ed</color> <!-- 设置界面背景 -->
+    <color name="addmemory_bg">#FFFFFF</color> <!-- 设置界面背景 -->
 
 
     <color name="white">#FFFFFF</color> <!-- 白色 -->
