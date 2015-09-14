@@ -37,22 +37,8 @@ public class MemoryAdapter {
 
         private List<String> mDatas;
         private LayoutInflater mInflater;
-
         private List<Integer> mHeights;
 
-        public interface OnItemClickLitener
-        {
-            void onItemClick(View view, int position);
-
-            void onItemLongClick(View view, int position);
-        }
-
-        private OnItemClickLitener mOnItemClickLitener;
-
-        public void setOnItemClickLitener(OnItemClickLitener mOnItemClickLitener)
-        {
-            this.mOnItemClickLitener = mOnItemClickLitener;
-        }
 
         public int getRandNumber()
         {
@@ -63,7 +49,6 @@ public class MemoryAdapter {
         {
             mInflater = LayoutInflater.from(context);
             mDatas = datas;
-
             mHeights = new ArrayList<Integer>();
             for (int i = 0; i < mDatas.size(); i++)
             {
@@ -89,37 +74,14 @@ public class MemoryAdapter {
             s = s.substring(3, 3 + 6);
             s="#"+"50"+s;
 
-            LayoutParams lp = holder.tv.getLayoutParams();
+            LayoutParams lp = holder.textView.getLayoutParams();
             lp.height = mHeights.get(position);
-
-            holder.tv.setLayoutParams(lp);
-            holder.tv.setText(mDatas.get(position));
-            holder.iv.setLayoutParams(lp);
-            GradientDrawable p = (GradientDrawable) holder.iv.getBackground();
+            holder.textView.setLayoutParams(lp);
+            holder.textView.setText(mDatas.get(position));
+            holder.itemView.setLayoutParams(lp);
+            GradientDrawable p = (GradientDrawable) holder.itemView.getBackground();
             p.setColor(Color.parseColor(s));
 
-            // 如果设置了回调，则设置点击事件
-            if (mOnItemClickLitener != null)
-            {
-                holder.itemView.setOnClickListener(new OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        int pos = holder.getLayoutPosition();
-                        mOnItemClickLitener.onItemClick(holder.itemView, pos);
-                    }
-                });
-
-                holder.itemView.setOnLongClickListener(new OnLongClickListener() {
-                    @Override
-                    public boolean onLongClick(View v)
-                    {
-                        int pos = holder.getLayoutPosition();
-                        mOnItemClickLitener.onItemLongClick(holder.itemView, pos);
-                        removeData(pos);
-                        return false;
-                    }
-                });
-            }
         }
 
         @Override
@@ -143,14 +105,22 @@ public class MemoryAdapter {
 
         class MyViewHolder extends RecyclerView.ViewHolder
         {
-            ImageView iv;
-            TextView tv;
+            ImageView itemView;
+            TextView textView;
             public MyViewHolder(View view)
             {
                 super(view);
-                tv = (TextView) view.findViewById(R.id.id_MainViewItemText);
-                iv = (ImageView) view.findViewById(R.id.id_MainViewItemImage);
-
+                textView = (TextView) view.findViewById(R.id.id_MainViewItemText);
+                itemView = (ImageView) view.findViewById(R.id.id_MainViewItemImage);
+                itemView.setOnLongClickListener(new OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View v)
+                    {
+                        final int position = getAdapterPosition();
+                        removeData(position);
+                        return false;
+                    }
+                });
 
 
             }

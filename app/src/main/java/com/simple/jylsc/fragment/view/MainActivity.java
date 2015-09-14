@@ -77,7 +77,7 @@ public class MainActivity
 
             @Override
             public void onPageScrollStateChanged(int state) {
-                Log.e("TAG", "onPageScrollStateChanged"+state);
+                Log.e("TAG", "onPageScrollStateChanged" + state);
             }
         });
         // Four : Also ,you can call this method like this:
@@ -100,8 +100,6 @@ public class MainActivity
             if (position == 2) {
                 return addMemoryView;
             }
-
-
             return new MyFragment(0);
         }
 
@@ -123,9 +121,6 @@ public class MainActivity
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             return inflater.inflate(resource[position], null);
-//			ImageView imageView = new ImageView(getActivity());
-//			imageView.setImageResource(resource[position]);
-//			return imageView;
         }
     }
 }
