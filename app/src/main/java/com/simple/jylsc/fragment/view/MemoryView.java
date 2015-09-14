@@ -47,7 +47,7 @@ public class MemoryView extends Fragment {
 
         StikkyHeaderBuilder.stickTo(mRecyclerView)
                 .setHeader(R.id.id_MemoryHeader, (ViewGroup) getView())
-                .minHeightHeaderDim(R.dimen.min_height_header_materiallike)
+                .minHeightHeaderDim(R.dimen.title_max_height)
                 .animator(animator)
                 .build();
         MemoryAdapter.populateRecyclerView(mRecyclerView);

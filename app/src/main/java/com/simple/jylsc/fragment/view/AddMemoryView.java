@@ -63,7 +63,7 @@ public class AddMemoryView extends Fragment {
     }
 
     private void setupViews(View view) {
-        mRecycler = (RecyclerView) view.findViewById(R.id.recycler);
+        mRecycler = (RecyclerView) view.findViewById(R.id.id_AddMemoryRecyclerView);
         mRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         AddMemoryAdapter adapter = new AddMemoryAdapter(getActivity(), 100);
@@ -72,7 +72,7 @@ public class AddMemoryView extends Fragment {
 
 
 
-        mRecyclerHeader = (RecyclerViewHeader) view.findViewById(R.id.header);
+        mRecyclerHeader = (RecyclerViewHeader) view.findViewById(R.id.id_AddMemoryHeader);
         mRecyclerHeader.attachTo(mRecycler, true);
     }
 
