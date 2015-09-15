@@ -39,6 +39,7 @@ public class MemoryView extends Fragment {
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
     }
 
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);

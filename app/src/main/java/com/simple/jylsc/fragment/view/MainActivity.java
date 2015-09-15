@@ -1,6 +1,8 @@
 package com.simple.jylsc.fragment.view;
 
 import android.annotation.SuppressLint;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -13,6 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.simple.jylsc.fragment.R;
+import com.simple.jylsc.fragment.adapter.MemoryAdapter;
+import com.simple.jylsc.fragment.dao.SQLiteOperate.MySQLiteHelper;
 import com.simple.jylsc.fragment.tool.guidebackgroundcoloranimation.ColorAnimationView;
 
 
@@ -27,7 +31,7 @@ public class MainActivity
     private MemoryView memoryView = new MemoryView();
     private AddMemoryView addMemoryView = new AddMemoryView();
 
-    public static void setPage(int position) {
+    public final static void setPage() {
         viewPager.setCurrentItem(1);
     }
 
@@ -39,7 +43,7 @@ public class MainActivity
         ColorAnimationView colorAnimationView = (ColorAnimationView) findViewById(R.id.ColorAnimationView);
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         viewPager.setAdapter(adpter);
-        this.setPage(1);
+        this.setPage();
         /**
          *  首先，你必须在 设置 Viewpager的 adapter 之后在调用这个方法
          *  第二点，setmViewPager(ViewPager mViewPager,Object obj, int count, int... colors)
@@ -82,6 +86,11 @@ public class MainActivity
         });
         // Four : Also ,you can call this method like this:
         // colorAnimationView.setmViewPager(viewPager,this,resource.length,0xffFF8080,0xff8080FF,0xffffffff,0xff80ff80);
+
+        //程序运行，创建数据库
+        SQLiteOpenHelper dbHelper = new MySQLiteHelper(this,"Fragments.db",null,2);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
     }
 
 
@@ -122,5 +131,5 @@ public class MainActivity
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             return inflater.inflate(resource[position], null);
         }
-    }   
+    }
 }

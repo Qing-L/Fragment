@@ -49,18 +49,18 @@ public class AddMemoryView extends Fragment {
         View view = inflater.inflate(R.layout.layout_addmemory_view, container, false);
         ImageView buttonBack;
         buttonBack =(ImageView) view.findViewById(R.id.id_AddMemoryButtonBack);
-        buttonBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               MainActivity.setPage(1);
-            }
-        });
-
-
+        buttonBack.setOnClickListener(BacktoMain);
 
         setupViews(view);
         return view;
     }
+
+    private static View.OnClickListener BacktoMain = new View.OnClickListener()
+    {
+        public void onClick(View v) {
+            MainActivity.setPage();
+        }
+    };
 
     private void setupViews(View view) {
         mRecycler = (RecyclerView) view.findViewById(R.id.id_AddMemoryRecyclerView);

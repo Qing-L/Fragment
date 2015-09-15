@@ -18,6 +18,8 @@ package com.simple.jylsc.fragment.adapter;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -26,9 +28,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.simple.jylsc.fragment.R;
+import com.simple.jylsc.fragment.dao.SQLiteOperate.MySQLiteHelper;
+import com.simple.jylsc.fragment.dao.model.Memory;
+import com.simple.jylsc.fragment.dao.model.MemoryColor;
+import com.simple.jylsc.fragment.view.MainActivity;
 
+import java.util.List;
 import java.util.Random;
 
 
@@ -38,21 +46,12 @@ import java.util.Random;
  */
 public class AddMemoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private int[] mColors;
+    private static List<String> mColors;
     private static Context content;
 
     public AddMemoryAdapter(Context context, int numberOfItems) {
         this.content = context;
-        mColors = new int[numberOfItems];
-        for (int i = 0; i < numberOfItems; ++i) {
-            Random r = new Random();
-            Double d = r.nextDouble();
-            String s = d + "";
-            s = s.substring(3, 3 + 6);
-            s = "#" + "50" + s;
-            mColors[i] = Color.parseColor(s);
-
-        }
+        mColors = new MemoryColor().getColorList();
     }
 
     @Override
@@ -64,12 +63,12 @@ public class AddMemoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         final SampleViewHolder viewHolder = (SampleViewHolder) holder;
-        viewHolder.itemView.setBackgroundColor(mColors[position]);
+        viewHolder.itemView.setBackgroundColor(Color.parseColor(mColors.get(position)));
     }
 
     @Override
     public int getItemCount() {
-        return mColors.length;
+        return mColors.size();
     }
 
 
@@ -87,13 +86,32 @@ public class AddMemoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             dialog.show();
             ImageView buttonCancel;
             ImageView buttonConfirm;
+            final EditText nameInput;
             buttonCancel=(ImageView) view.findViewById(R.id.id_AddMemoryButtonCancel);
             buttonConfirm=(ImageView) view.findViewById(R.id.id_AddMemoryButtonConfirm);
+            nameInput=(EditText) view.findViewById(R.id.id_AddMemoryEditText);
             buttonCancel.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     dialog.dismiss();
                     Log.i("dialog--->",position+"");
+                }
+            });
+            buttonConfirm.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View v){
+                    SQLiteOpenHelper dbHelper = new MySQLiteHelper(AddMemoryAdapter.content,"Fragments.db",null,2);
+                    SQLiteDatabase db = dbHelper.getWritableDatabase();
+                    Memory memory = new Memory();
+                    memory.setMemoryName(nameInput.getText().toString());
+                    memory.setMemoryColor(mColors.get(position));
+                    memory.saveThrows();
+                    if (memory.save()) {
+                        Toast.makeText(AddMemoryAdapter.content, "Succeed", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(AddMemoryAdapter.content, "Failed", Toast.LENGTH_SHORT).show();
+                    }
+                    dialog.dismiss();
+                    MainActivity.setPage();
                 }
             });
         }

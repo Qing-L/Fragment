@@ -15,6 +15,9 @@ import android.widget.TextView;
 import android.view.View.OnLongClickListener;
 
 import com.simple.jylsc.fragment.R;
+import com.simple.jylsc.fragment.dao.model.Memory;
+
+import org.litepal.crud.DataSupport;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,13 +25,8 @@ import java.util.Random;
 
 public class MemoryAdapter {
 
-    private static final int COUNT_ITEMS = 500;
-
     public static void populateRecyclerView(RecyclerView recyclerView) {
-        List<String> elements = new ArrayList<>(COUNT_ITEMS);
-        for (int i = 0; i < COUNT_ITEMS; i++) {
-            elements.add("row " + i);
-        }
+        List<Memory> elements = DataSupport.findAll(Memory.class);
 
         SimpleRecyclerAdapter recyclerAdapter = new SimpleRecyclerAdapter(recyclerView.getContext(), elements);
         recyclerView.setAdapter(recyclerAdapter);
@@ -37,7 +35,7 @@ public class MemoryAdapter {
 
     private static class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAdapter.MyViewHolder> {
 
-        private List<String> mDatas;
+        private List<Memory> mDatas;
         private LayoutInflater mInflater;
         private List<Integer> mHeights;
         private Context context;
@@ -47,7 +45,7 @@ public class MemoryAdapter {
             return (int) (200 + Math.random() * 400);
         }
 
-        public SimpleRecyclerAdapter(Context context, List<String> datas) {
+        public SimpleRecyclerAdapter(Context context, List<Memory> datas) {
             mInflater = LayoutInflater.from(context);
             mDatas = datas;
             mHeights = new ArrayList<Integer>();
@@ -67,19 +65,13 @@ public class MemoryAdapter {
         @Override
         public void onBindViewHolder(final MyViewHolder holder, final int position) {
 
-            Random r = new Random();
-            Double d = r.nextDouble();
-            String s = d + "";
-            s = s.substring(3, 3 + 6);
-            s = "#" + "50" + s;
-
             LayoutParams lp = holder.textView.getLayoutParams();
             lp.height = mHeights.get(position);
             holder.textView.setLayoutParams(lp);
-            holder.textView.setText(mDatas.get(position));
+            holder.textView.setText(mDatas.get(position).getMemoryName());
             holder.itemView.setLayoutParams(lp);
             GradientDrawable p = (GradientDrawable) holder.itemView.getBackground();
-            p.setColor(Color.parseColor(s));
+            p.setColor(Color.parseColor(mDatas.get(position).getMemoryColor()));
 
         }
 
@@ -88,13 +80,13 @@ public class MemoryAdapter {
             return mDatas.size();
         }
 
-        public void addData(int position) {
-            mDatas.add(position, "Insert One");
-            mHeights.add(getRandNumber());
-            notifyItemInserted(position);
+        public void addData()
+        {
+            mDatas = DataSupport.findAll(Memory.class);
         }
 
         public void removeData(int position) {
+            DataSupport.delete(Memory.class, mDatas.get(position).getId());
             mDatas.remove(position);
             notifyItemRemoved(position);
         }
@@ -110,6 +102,7 @@ public class MemoryAdapter {
                 public void onClick(DialogInterface dialog, int which) {
                     dialog.dismiss();
                     removeData(pos);
+
                 }
             });
             builder.setNegativeButton("罢了,继续留着你吧~", new DialogInterface.OnClickListener() {
