@@ -20,4 +20,5 @@
     <dimen name="recycler_divider_width">1dp</dimen>
     <dimen name="header_height">200dp</dimen>
 
+
 </resources>

@@ -1,8 +1,10 @@
 package com.simple.jylsc.fragment.adapter;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,8 +12,8 @@ import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
+
 import com.simple.jylsc.fragment.R;
 
 import java.util.ArrayList;
@@ -38,41 +40,38 @@ public class MemoryAdapter {
         private List<String> mDatas;
         private LayoutInflater mInflater;
         private List<Integer> mHeights;
+        private Context context;
 
 
-        public int getRandNumber()
-        {
+        public int getRandNumber() {
             return (int) (200 + Math.random() * 400);
         }
 
-        public SimpleRecyclerAdapter(Context context, List<String> datas)
-        {
+        public SimpleRecyclerAdapter(Context context, List<String> datas) {
             mInflater = LayoutInflater.from(context);
             mDatas = datas;
             mHeights = new ArrayList<Integer>();
-            for (int i = 0; i < mDatas.size(); i++)
-            {
+            this.context = context;
+            for (int i = 0; i < mDatas.size(); i++) {
                 mHeights.add(getRandNumber());
             }
         }
 
         @Override
-        public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
-        {
+        public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             MyViewHolder holder = new MyViewHolder(mInflater.inflate(
                     R.layout.item_mainview, parent, false));
             return holder;
         }
 
         @Override
-        public void onBindViewHolder(final MyViewHolder holder, final int position)
-        {
+        public void onBindViewHolder(final MyViewHolder holder, final int position) {
 
             Random r = new Random();
             Double d = r.nextDouble();
             String s = d + "";
             s = s.substring(3, 3 + 6);
-            s="#"+"50"+s;
+            s = "#" + "50" + s;
 
             LayoutParams lp = holder.textView.getLayoutParams();
             lp.height = mHeights.get(position);
@@ -85,39 +84,62 @@ public class MemoryAdapter {
         }
 
         @Override
-        public int getItemCount()
-        {
+        public int getItemCount() {
             return mDatas.size();
         }
 
-        public void addData(int position)
-        {
+        public void addData(int position) {
             mDatas.add(position, "Insert One");
-            mHeights.add( getRandNumber());
+            mHeights.add(getRandNumber());
             notifyItemInserted(position);
         }
 
-        public void removeData(int position)
-        {
+        public void removeData(int position) {
             mDatas.remove(position);
             notifyItemRemoved(position);
         }
 
-        class MyViewHolder extends RecyclerView.ViewHolder
+        protected void dialog( int position)
         {
+            final int pos=position;
+            android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(context);
+            builder.setMessage("小主你真的要删除我么 ::>_<:: ");
+            builder.setTitle("警告！");
+            builder.setPositiveButton("是的！不要你了！", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                    removeData(pos);
+                }
+            });
+            builder.setNegativeButton("罢了,继续留着你吧~", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            builder.create().show();
+        }
+
+
+
+        class MyViewHolder extends RecyclerView.ViewHolder {
+
+
+
             ImageView itemView;
             TextView textView;
-            public MyViewHolder(View view)
-            {
+
+            public MyViewHolder(View view) {
                 super(view);
                 textView = (TextView) view.findViewById(R.id.id_MainViewItemText);
                 itemView = (ImageView) view.findViewById(R.id.id_MainViewItemImage);
                 itemView.setOnLongClickListener(new OnLongClickListener() {
                     @Override
-                    public boolean onLongClick(View v)
-                    {
+                    public boolean onLongClick(View v) {
                         final int position = getAdapterPosition();
-                        removeData(position);
+                        dialog(position);
+
                         return false;
                     }
                 });

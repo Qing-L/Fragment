@@ -122,5 +122,5 @@ public class MainActivity
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             return inflater.inflate(resource[position], null);
         }
-    }
+    }   
 }
