@@ -50,7 +50,7 @@ public class AddMemoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     private static Context content;
 
     public AddMemoryAdapter(Context context, int numberOfItems) {
-        this.content = context;
+        content = context;
         mColors = new MemoryColor().getColorList();
     }
 
@@ -73,7 +73,7 @@ public class AddMemoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
 
 
-    public static class SampleViewHolder extends RecyclerView.ViewHolder {
+    public  class SampleViewHolder extends RecyclerView.ViewHolder {
         public ImageView itemView;
 
         public void showDialog(final int position)
@@ -110,6 +110,7 @@ public class AddMemoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                     } else {
                         Toast.makeText(AddMemoryAdapter.content, "Failed", Toast.LENGTH_SHORT).show();
                     }
+                    MemoryAdapter.addData(memory);
                     dialog.dismiss();
                     MainActivity.setPage();
                 }

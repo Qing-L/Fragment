@@ -1,0 +1,59 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    >
+
+
+
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1"
+      >
+
+    <android.support.v7.widget.Toolbar
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:minHeight="50dp"
+        android:background="#88c2f1"
+        android:id="@+id/toolbar"
+        />
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="50dp"
+          android:text="碎片"
+          android:textColor="@color/white"
+          android:textSize="@dimen/title_text"
+          android:gravity="center"
+          />
+      
+
+
+
+    <com.simple.jylsc.fragment.tool.waveswiperefreshlayout.WaveSwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/main_swipe"
+        android:layout_below="@+id/toolbar"
+        >
+
+
+        <ImageView
+            android:id="@+id/id_refresh_view_imageview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/bg"
+            android:scaleType="fitXY"/>
+
+
+
+    </com.simple.jylsc.fragment.tool.waveswiperefreshlayout.WaveSwipeRefreshLayout>
+
+  </RelativeLayout>
+
+</LinearLayout>

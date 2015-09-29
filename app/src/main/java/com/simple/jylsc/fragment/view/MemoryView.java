@@ -11,9 +11,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.simple.jylsc.fragment.R;
+import com.simple.jylsc.fragment.dao.model.Memory;
 import com.simple.jylsc.fragment.tool.stikkyheader.IO2014HeaderAnimator;
 import com.simple.jylsc.fragment.adapter.MemoryAdapter;
 import com.simple.jylsc.fragment.tool.stikkyheader.StikkyHeaderBuilder;
+
+import org.litepal.crud.DataSupport;
+
+import java.util.List;
 
 public class MemoryView extends Fragment {
 
@@ -51,7 +56,11 @@ public class MemoryView extends Fragment {
                 .minHeightHeaderDim(R.dimen.title_max_height)
                 .animator(animator)
                 .build();
-        MemoryAdapter.populateRecyclerView(mRecyclerView);
+
+        List<Memory> elements = DataSupport.findAll(Memory.class);
+
+        MemoryAdapter recyclerAdapter = new MemoryAdapter(mRecyclerView.getContext(), elements);
+        mRecyclerView.setAdapter(recyclerAdapter);
     }
 
 }

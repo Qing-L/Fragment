@@ -25,7 +25,7 @@
             android:src="@drawable/image1"/>
 
         <FrameLayout
-            android:alpha="0"
+            android:alpha="1"
             android:id="@+id/id_MemoryHeaderImage"
             android:layout_width="match_parent"
             android:layout_height="@dimen/title_min_height"
