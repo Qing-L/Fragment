@@ -99,8 +99,6 @@ public class AddMemoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             });
             buttonConfirm.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View v){
-                    SQLiteOpenHelper dbHelper = new MySQLiteHelper(AddMemoryAdapter.content,"Fragments.db",null,2);
-                    SQLiteDatabase db = dbHelper.getWritableDatabase();
                     Memory memory = new Memory();
                     memory.setMemoryName(nameInput.getText().toString());
                     memory.setMemoryColor(mColors.get(position));

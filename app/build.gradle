@@ -26,4 +26,5 @@ dependencies {
     compile files('src/libs/litepal-1.2.1.jar')
     compile 'com.android.support:recyclerview-v7:22.1.1'
     compile files('src/libs/universal-image-loader-1.9.4.jar')
+    compile 'com.beardedhen:androidbootstrap:1.1.1'
 }

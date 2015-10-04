@@ -472,8 +472,8 @@ public class MaterialProgressDrawable extends Drawable implements Animatable {
         private void drawTriangle(Canvas c, float startAngle, float sweepAngle, Rect bounds) {
             if (mShowArrow) {
                 if (mArrow == null) {
-                    mArrow = new android.graphics.Path();
-                    mArrow.setFillType(android.graphics.Path.FillType.EVEN_ODD);
+                    mArrow = new Path();
+                    mArrow.setFillType(Path.FillType.EVEN_ODD);
                 } else {
                     mArrow.reset();
                 }

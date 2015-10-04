@@ -88,7 +88,7 @@ public class MainActivity
         // colorAnimationView.setmViewPager(viewPager,this,resource.length,0xffFF8080,0xff8080FF,0xffffffff,0xff80ff80);
 
         //程序运行，创建数据库
-        SQLiteOpenHelper dbHelper = new MySQLiteHelper(this,"Fragments.db",null,2);
+        SQLiteOpenHelper dbHelper = new MySQLiteHelper(this,"Fragments.db",null,4);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
     }

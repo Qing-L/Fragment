@@ -12,6 +12,14 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             +"id integer primary key autoincrement,"
             +"memoryname text,"
             +"memorycolor text)";
+    String CREATE_FRAGMENT = "CREATE TABLE Fragment("
+            +"id integer primary key autoincrement,"
+            +"title text,"
+            +"content text,"
+            +"imagepath text,"
+            +"createdate text,"
+            +"memory_id integer,"
+            +"foreign key (memory_id) reference Memory(id))";
 
     public MySQLiteHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
@@ -20,6 +28,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_MEMORY);
+        db.execSQL(CREATE_FRAGMENT);
     }
 
     @Override

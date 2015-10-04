@@ -213,7 +213,7 @@ public class AnimatorBuilder {
 
         mLastTranslationApplied = boundedRatioTranslationY;
 
-        for (AnimatorBuilder.AnimatorBundle animatorBundle : mSetAnimatorBundles) {
+        for (AnimatorBundle animatorBundle : mSetAnimatorBundles) {
 
             float interpolatedTranslation = animatorBundle.mInterpolator == null ? boundedRatioTranslationY : animatorBundle.mInterpolator.getInterpolation(boundedRatioTranslationY);
             float valueAnimation = animatorBundle.mFromValue + (animatorBundle.mDelta * interpolatedTranslation);
@@ -308,7 +308,7 @@ public class AnimatorBuilder {
             mTypeAnimation = typeAnimation;
         }
 
-        public static AnimatorBundle create(AnimatorBundle.TypeAnimation typeAnimation, View view, Interpolator interpolator, float fromValue, float toValue) {
+        public static AnimatorBundle create(TypeAnimation typeAnimation, View view, Interpolator interpolator, float fromValue, float toValue) {
             AnimatorBundle animatorBundle = new AnimatorBundle(typeAnimation);
 
             animatorBundle.mView = view;

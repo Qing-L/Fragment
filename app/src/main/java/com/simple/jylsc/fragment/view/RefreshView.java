@@ -16,7 +16,10 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.download.ImageDownloader;
 import com.simple.jylsc.fragment.R;
+import com.simple.jylsc.fragment.dao.model.Fragment;
 import com.simple.jylsc.fragment.tool.waveswiperefreshlayout.WaveSwipeRefreshLayout;
+
+import org.litepal.crud.DataSupport;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,9 +30,13 @@ public class RefreshView extends AppCompatActivity implements WaveSwipeRefreshLa
 
 
   private WaveSwipeRefreshLayout mWaveSwipeRefreshLayout;
-  ImageView imageView;
-  List<String> imageList = new ArrayList<String>();
-  DisplayImageOptions options;
+  private ImageView imageView;
+  private DisplayImageOptions options;
+  private List<Fragment> fragmentList = new ArrayList<Fragment>();
+  private String bg;
+  private String content;
+  private int memory_no;
+
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +45,11 @@ public class RefreshView extends AppCompatActivity implements WaveSwipeRefreshLa
     super.onCreate(savedInstanceState);
 
     imageView = (ImageView) findViewById(R.id.id_refresh_view_imageview);
-
-    AddImage();
+    Bundle bundle = getIntent().getExtras();
+    bg=bundle.getString("background");
+    content=bundle.getString("content");
+    memory_no=bundle.getInt("memory_no");
+    fragmentList= DataSupport.where("memory_id = ?",String.valueOf(memory_no)).find(Fragment.class);
 
     //显示图片的配置
     options = new DisplayImageOptions.Builder()
@@ -59,7 +69,8 @@ public class RefreshView extends AppCompatActivity implements WaveSwipeRefreshLa
     mWaveSwipeRefreshLayout.setOnRefreshListener(this);
     mWaveSwipeRefreshLayout.setWaveColor(getResources().getColor(R.color.primary));
     mWaveSwipeRefreshLayout.setShadowRadius(0);
-
+    imageView = (ImageView) findViewById(R.id.id_refresh_view_imageview);
+    ImageLoader.getInstance().displayImage(bg, imageView, options);
   }
 
 
@@ -70,10 +81,10 @@ public class RefreshView extends AppCompatActivity implements WaveSwipeRefreshLa
         // 更新が終了したらインジケータ非表示
         mWaveSwipeRefreshLayout.setRefreshing(false);
         imageView = (ImageView) findViewById(R.id.id_refresh_view_imageview);
-        int i = new Random().nextInt(imageList.size());
-        Log.i("random",String.valueOf(i));
+        int i = new Random().nextInt(fragmentList.size());
+        Log.i("random", String.valueOf(i));
         //使用displayimage（）加载图片
-        ImageLoader.getInstance().displayImage(imageList.get(i) , imageView, options);
+        ImageLoader.getInstance().displayImage(fragmentList.get(i).getImagepath(), imageView, options);
       }
     }, 300);
   }
@@ -112,14 +123,5 @@ public class RefreshView extends AppCompatActivity implements WaveSwipeRefreshLa
     }
 
     return super.onOptionsItemSelected(item);
-  }
-
-  public void AddImage()
-  {
-    //图片源于assets
-    for(int i=1;i<5;i++) {
-      String imageUrl = ImageDownloader.Scheme.ASSETS.wrap("Image/flowerpic"+i+".jpg");
-      imageList.add(imageUrl);
-    }
   }
 }

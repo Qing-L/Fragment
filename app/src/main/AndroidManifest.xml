@@ -25,6 +25,16 @@
         <activity android:name=".view.RefreshView"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             />
+        <activity android:name=".view.FragmentView"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            />
+        <activity android:name=".view.AddFragmentView"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            />
+        <activity android:name=".view.RefreshFragmentView"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            />
+
 
 
     </application>

@@ -16,6 +16,7 @@ import android.view.View.OnLongClickListener;
 
 import com.simple.jylsc.fragment.R;
 import com.simple.jylsc.fragment.dao.model.Memory;
+import com.simple.jylsc.fragment.view.FragmentView;
 import com.simple.jylsc.fragment.view.MainActivity;
 import com.simple.jylsc.fragment.view.RefreshView;
 
@@ -132,8 +133,8 @@ public class MemoryAdapter extends RecyclerView.Adapter<MemoryAdapter.MyViewHold
                 public void onClick(View v) {
                     Intent intent=new Intent();
                     //Intent传递参数
-                    intent.putExtra("position", getAdapterPosition());
-                    intent.setClass(context, RefreshView.class);
+                    intent.putExtra("memory_no", getAdapterPosition()+1);
+                    intent.setClass(context, FragmentView.class);
                     context.startActivity(intent);
 
 

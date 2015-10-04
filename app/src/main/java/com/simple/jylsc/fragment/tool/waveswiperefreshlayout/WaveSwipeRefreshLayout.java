@@ -78,7 +78,7 @@ public class WaveSwipeRefreshLayout extends ViewGroup
   private static final int SCALE_DOWN_DURATION = 200;
 
   /**
-   * {@link WaveSwipeRefreshLayout.ProgressAnimationImageView#mProgress}
+   * {@link ProgressAnimationImageView#mProgress}
    * の回転が始まるまでのDuration
    */
   private static final int ANIMATE_TO_TRIGGER_DURATION = 200;
@@ -546,7 +546,7 @@ public class WaveSwipeRefreshLayout extends ViewGroup
   }
 
   /**
-   * @param listener {@link android.view.animation.Animation.AnimationListener}
+   * @param listener {@link Animation.AnimationListener}
    */
   private void startScaleDownAnimation(Animation.AnimationListener listener) {
     Animation scaleDownAnimation = new Animation() {
@@ -580,7 +580,7 @@ public class WaveSwipeRefreshLayout extends ViewGroup
 
   /**
    * @return {@link WaveSwipeRefreshLayout#mState} == REFRESHING of {@link
-   * WaveSwipeRefreshLayout.STATE}
+   * STATE}
    */
   public boolean isRefreshing() {
     return mState == STATE.REFRESHING;
@@ -667,7 +667,7 @@ public class WaveSwipeRefreshLayout extends ViewGroup
   }
 
   /**
-   * @param listener {@link WaveSwipeRefreshLayout.OnRefreshListener}
+   * @param listener {@link OnRefreshListener}
    */
   public void setOnRefreshListener(OnRefreshListener listener) {
     mListener = listener;

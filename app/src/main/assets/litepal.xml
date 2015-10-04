@@ -2,9 +2,10 @@
 <litepal>
 
     <dbname value="Fragments"></dbname>
-    <version value="2"></version>
+    <version value="4"></version>
 
     <list>
         <mapping class="com.simple.jylsc.fragment.dao.model.Memory"></mapping>
+        <mapping class="com.simple.jylsc.fragment.dao.model.Fragment"></mapping>
     </list>
 </litepal>
