@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <color name="top_item">#a6c</color>
+    <color name="sticky_item">#f44</color>
+    <color name="sticky_item_text">#fff</color>
+
+    <drawable name="transparent">#00000000</drawable>
+
+    <color name="emerald">#2ecc71</color>
+    <color name="wisteria">#8e44ad</color>
+    <color name="clouds">#ecf0f1</color>
+    <color name="midnight_blue">#141d26</color>
+
+
+    <color name="primary">#88c2f1</color>
+
+
+    <color name="setting_background">#2b2b2b</color> <!-- 设置界面背景 -->
+    <color name="main_to_setting">#2b2b2b</color> <!-- 设置界面背景 -->
+    <color name="setting_textbg1">#20FFFFFF</color> <!-- 设置界面文本背景 -->
+    <color name="setting_textbg2">#20DDDDDD</color> <!-- 设置界面文本背景 -->
+    <color name="setting_text">#EEEEEE</color> <!-- 设置界面文本颜色 -->
+
+
+    <color name="main_bg">#EEEEEE</color> <!-- 设置界面背景 -->
+    <color name="main_to_addmemory">#b8f1ed</color> <!-- 设置界面背景 -->
+    <color name="addmemory_bg">#FFFFFF</color> <!-- 设置界面背景 -->
+
+
+    <color name="white">#FFFFFF</color> <!-- 白色 -->
+    <color name="black">#000000</color> <!-- 黑色 -->
+    <color name="gainsboro">#DCDCDC</color> <!-- 淡灰色 -->
+    <color name="mistyrose">#FFE4E1</color> <!-- 浅玫瑰色 -->
+    <color name="fontcolor">#666666</color><!-- 灰色 -->
+
+
+    <!-- 马卡隆色系 -->
+
+    <color name="c29">#ca7497</color>
+	<color name="c2">#e27386</color>
+    <color name="c1">#f16d7a</color>
+	<color name="c3">#f55066</color>
+	<color name="c4">#ef5464</color>
+    <color name="c38">#aa5b71</color>
+	<color name="c5">#ae716e</color>
+    <color name="c8">#c86f67</color>
+	<color name="c6">#cb8e85</color>
+	<color name="c7">#cf8878</color>
+    <color name="c13">#ff9b6a</color>
+	<color name="c9">#f1ccb8</color>
+	<color name="c10">#f2debd</color>
+	<color name="c11">#b7d28d</color>
+	<color name="c12">#dcff93</color>
+	<color name="c14">#f1b8e4</color>
+	<color name="c15">#d9b8f1</color>
+	<color name="c16">#f1ccb8</color>
+	<color name="c17">#f1f1b8</color>
+	<color name="c18">#b8f1ed</color>
+	<color name="c19">#b8f1cc</color>
+	<color name="c20">#e7dac9</color>
+	<color name="c21">#e1622f</color>
+    <color name="c37">#ff8240</color>
+    <color name="c23">#fd7d36</color>
+    <color name="c24">#fe9778</color>
+    <color name="c25">#c38e9e</color>
+    <color name="c26">#f28860</color>
+    <color name="c27">#de772c</color>
+    <color name="c28">#e96a25</color>
+    <color name="c30">#e29e4b</color>
+    <color name="c22">#f3d64e</color>
+    <color name="c32">#fecf45</color>
+    <color name="c31">#edbf2b</color>
+    <color name="c39">#f0b631</color>
+    <color name="c33">#f9b747</color>
+    <color name="c34">#c17e61</color>
+    <color name="c35">#ed9678</color>
+    <color name="c40">#cf8888</color>
+
+
+
+
+
+
+
+
+</resources>

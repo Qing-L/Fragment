@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/topmenu" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+       >
+
+        <TextView
+            android:id="@+id/id_setting_textview1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="30dp"
+            android:text="帐号管理"
+            android:textColor="@color/setting_text"
+            android:background="@drawable/setting_textbg1"
+            android:textSize="@dimen/title_text" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:id="@+id/id_setting_textview2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/setting_textbg1"
+            android:gravity="center_vertical"
+            android:paddingLeft="30dp"
+            android:text="清空缓存"
+            android:textColor="@color/setting_text"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/id_setting_textview3"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/id_setting_textview2"
+            android:background="@color/setting_textbg2"
+            android:gravity="center_vertical"
+            android:paddingLeft="30dp"
+            android:text="意见反馈"
+            android:textColor="@color/setting_text"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/id_setting_textview4"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/id_setting_textview3"
+            android:background="@color/setting_textbg1"
+            android:gravity="center_vertical"
+            android:paddingLeft="30dp"
+            android:text="关于我们"
+            android:textColor="@color/setting_text"
+            android:textSize="17sp" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:id="@+id/id_setting_textview5"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/setting_textbg1"
+            android:gravity="center_vertical"
+            android:paddingLeft="30dp"
+            android:text="关于软件"
+            android:textColor="@color/setting_text"
+            android:textSize="17sp" />
+
+
+        <TextView
+            android:id="@+id/id_setting_textview6"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/id_setting_textview5"
+            android:background="@color/setting_textbg2"
+            android:gravity="center_vertical"
+            android:paddingLeft="30dp"
+            android:text="退出"
+            android:textColor="@color/setting_text"
+            android:textSize="17sp" />
+
+
+    </RelativeLayout>
+
+</LinearLayout>

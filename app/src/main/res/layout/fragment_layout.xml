@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/addmemory_bg">
+
+    <RelativeLayout
+        android:alpha="1"
+        android:id="@+id/id_MemoryHeaderImage"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/white"
+        android:layout_gravity="top">
+
+        <ImageView
+            android:id="@+id/id_fragment_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back"
+            android:layout_margin="12dp"
+            android:layout_alignParentLeft="true"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:src="@drawable/title_memory"
+            android:layout_centerInParent="true"
+            />
+
+        <ImageView
+            android:id="@+id/id_fragment_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/add"
+            android:layout_margin="10dp"
+            android:layout_alignParentRight="true"
+            />
+    </RelativeLayout>
+
+    <GridView
+        android:id="@+id/image_gridview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp" />
+
+    <ImageView
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/button_background"
+        android:id="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/id_fragment_random_button"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/rotate"
+        android:layout_alignTop="@+id/imageView" />
+
+    <include layout="@layout/window_radius"/>
+</RelativeLayout>

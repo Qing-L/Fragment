@@ -1,0 +1,28 @@
+<resources>
+    <style name="Item">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">300dp</item>
+    </style>
+
+    <style name="Item.Sticky">
+        <item name="android:background">@color/sticky_item</item>
+        <item name="android:layout_height">@dimen/sticky_height</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAppearance">?android:textAppearanceLarge</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="AppTheme" mce_bogus="1" parent="@android:style/Theme.Light">
+        <item name="android:windowAnimationStyle">@style/default_animation</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <!-- 默认Activity跳转动画 -->
+    <style name="default_animation" mce_bogus="1" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/default_anim_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/anim_stay</item>
+        <item name="android:activityCloseEnterAnimation">@anim/anim_stay</item>
+        <item name="android:activityCloseExitAnimation">@anim/default_anim_out</item>
+    </style>
+
+</resources>

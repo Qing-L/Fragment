@@ -1,0 +1,48 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:id="@+id/layout_container">
+
+    <android.support.v7.widget.RecyclerView
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:id="@+id/id_MemoryRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+    <FrameLayout
+        android:id="@+id/id_MemoryHeader"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/max_height_header">
+
+        <ImageView
+            android:id="@+id/id_MemoryHeaderBGImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image1"/>
+
+        <FrameLayout
+            android:alpha="1"
+            android:id="@+id/id_MemoryHeaderImage"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_min_height"
+            android:background="@android:color/white"
+            android:layout_gravity="bottom">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:src="@drawable/title_memory"
+                android:layout_gravity="bottom"
+                android:layout_margin="10dp"
+                />
+
+
+        </FrameLayout>
+
+    </FrameLayout>
+
+</FrameLayout>

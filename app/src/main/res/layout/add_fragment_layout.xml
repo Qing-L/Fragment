@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/addmemory_bg">
+
+    <FrameLayout
+        android:alpha="1"
+        android:id="@+id/id_MemoryHeaderImage"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_min_height"
+        android:background="@android:color/white"
+        android:layout_gravity="top">
+
+        <ImageView
+            android:id="@+id/id_add_fragment_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:layout_gravity="left"
+            android:src="@drawable/cancle"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text="添加碎片"
+            android:textColor="#7f8c8d"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            />
+
+        <ImageView
+            android:id="@+id/id_add_fragment_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:layout_gravity="right"
+            android:src="@drawable/checked"
+            />
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/id_add_fragment_imageview"
+        android:layout_below="@id/id_MemoryHeaderImage"
+        android:layout_width="match_parent"
+        android:layout_height="370dp"
+        android:layout_margin="10dp"
+        android:scaleType="fitXY"/>
+    <EditText
+        android:id="@+id/id_add_fragment_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="370dp"
+        android:layout_margin="10dp"
+        android:layout_below="@id/id_MemoryHeaderImage"
+        android:gravity="center"
+        android:textColor="#7f8c8d"
+        android:textSize="25sp"/>
+
+    <GridView
+        android:id="@+id/id_add_fragment_gridview"
+        android:layout_below="@id/id_add_fragment_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:numColumns="auto_fit"
+        android:horizontalSpacing="3dp"
+        android:verticalSpacing="3dp"
+        android:columnWidth="70dp"
+        android:scrollbars="none"
+        android:gravity="center"/>
+
+</RelativeLayout>
