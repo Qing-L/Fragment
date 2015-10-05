@@ -13,31 +13,31 @@
         android:background="@android:color/white"
         android:layout_gravity="top">
 
-        <com.beardedhen.androidbootstrap.FontAwesomeText
+        <ImageView
             android:id="@+id/id_add_fragment_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            fontawesometext:fa_icon="fa-chevron-left"
-            android:layout_margin="10dp"
-            android:textSize="32sp"
+            android:layout_margin="12dp"
             android:layout_gravity="left"
+            android:src="@drawable/cancle"
             />
 
-        <ImageView
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="35dp"
-            android:src="@drawable/title_memory"
+            android:text="添加碎片"
+            android:textColor="#7f8c8d"
+            android:textSize="20sp"
             android:layout_gravity="center"
             />
 
-        <com.beardedhen.androidbootstrap.FontAwesomeText
+        <ImageView
             android:id="@+id/id_add_fragment_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            fontawesometext:fa_icon="fa-chevron-left"
-            android:textSize="32sp"
-            android:layout_margin="10dp"
+            android:layout_margin="12dp"
             android:layout_gravity="right"
+            android:src="@drawable/checked"
             />
     </FrameLayout>
 
@@ -55,10 +55,8 @@
         android:layout_margin="10dp"
         android:layout_below="@id/id_MemoryHeaderImage"
         android:gravity="center"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="25sp"
-        android:textStyle="bold"/>
+        android:textColor="#7f8c8d"
+        android:textSize="25sp"/>
 
     <GridView
         android:id="@+id/id_add_fragment_gridview"

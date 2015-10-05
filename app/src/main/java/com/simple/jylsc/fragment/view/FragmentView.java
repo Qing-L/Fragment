@@ -3,27 +3,25 @@ package com.simple.jylsc.fragment.view;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.beardedhen.androidbootstrap.FontAwesomeText;
-import com.nostra13.universalimageloader.core.download.ImageDownloader;
 import com.simple.jylsc.fragment.R;
 import com.simple.jylsc.fragment.adapter.FragmentAdapter;
 import com.simple.jylsc.fragment.dao.model.Fragment;
-import com.simple.jylsc.fragment.dao.model.Memory;
 import com.simple.jylsc.fragment.tool.Tools_Random_number;
 
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -38,8 +36,8 @@ public class FragmentView extends Activity
     private FragmentAdapter adapter;
     private List<Fragment> fragmentList = new ArrayList<Fragment>();
 
-    private FontAwesomeText back;
-    private FontAwesomeText add;
+    private ImageView back;
+    private ImageView add;
     private ImageView random_btn;
 
     private int memory_no;
@@ -54,8 +52,8 @@ public class FragmentView extends Activity
 
         gridview = (GridView)this.findViewById(R.id.image_gridview);
         adapter = new FragmentAdapter(FragmentView.this);
-        back=(FontAwesomeText)this.findViewById(R.id.id_fragment_back);
-        add=(FontAwesomeText)this.findViewById(R.id.id_fragment_add);
+        back=(ImageView)this.findViewById(R.id.id_fragment_back);
+        add=(ImageView)this.findViewById(R.id.id_fragment_add);
         random_btn = (ImageView)this.findViewById(R.id.id_fragment_random_button);
         memory_no = getIntent().getExtras().getInt("memory_no");
 
@@ -82,13 +80,16 @@ public class FragmentView extends Activity
             Bundle bundle = new Bundle();
             bundle.putString("background", fragmentList.get(position).getImagepath());
             bundle.putString("content", fragmentList.get(position).getContent());
-            bundle.putInt("memory_no",memory_no);
+            bundle.putString("title",fragmentList.get(position).getTitle());
+            bundle.putInt("memory_no", memory_no);
             intent.putExtras(bundle);
             intent.setClass(FragmentView.this, RefreshFragmentView.class);
-            startActivity(intent);
+            startActivityForResult(intent,2);
+            overridePendingTransition(R.anim.default_anim_in, R.anim.default_anim_out);
+            System.gc();
         }
     };
-    AdapterView.OnItemLongClickListener gridview_longclick = new AdapterView.OnItemLongClickListener() {
+    OnItemLongClickListener gridview_longclick = new OnItemLongClickListener() {
         @Override
         public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
             dialog(position);
@@ -126,9 +127,10 @@ public class FragmentView extends Activity
     View.OnClickListener back_click = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent();
-            intent.setClass(FragmentView.this,MainActivity.class);
-            startActivity(intent);
+            finishActivity(0);
+            overridePendingTransition(R.anim.default_anim_in, R.anim.default_anim_out);
+            FragmentView.this.finish();
+            System.gc();
         }
     };
     View.OnClickListener add_click = new View.OnClickListener() {
@@ -136,8 +138,10 @@ public class FragmentView extends Activity
         public void onClick(View v) {
             Intent intent = new Intent();
             intent.putExtra("memory_no", memory_no);
-            intent.setClass(FragmentView.this,AddFragmentView.class);
-            startActivity(intent);
+            intent.setClass(FragmentView.this, AddFragmentView.class);
+            startActivityForResult(intent,1);
+            overridePendingTransition(R.anim.default_anim_in, R.anim.default_anim_out);
+            System.gc();
         }
     };
     /*
@@ -148,6 +152,11 @@ public class FragmentView extends Activity
     {
         public boolean onTouch(View v, MotionEvent event)
         {
+            Animation operatingAnim = AnimationUtils.loadAnimation(FragmentView.this, R.anim.rotatebtn);
+            LinearInterpolator lin = new LinearInterpolator();
+            operatingAnim.setInterpolator(lin);
+            random_btn.setAnimation(operatingAnim);
+
             int[] a = new int[10];
             int number;
 
@@ -159,6 +168,7 @@ public class FragmentView extends Activity
                     // 按下
                     parsetime = 0;
                     handler.post(updateThread);
+                    random_btn.startAnimation(operatingAnim);
                 }
                 break;
                 case MotionEvent.ACTION_UP:
@@ -169,19 +179,20 @@ public class FragmentView extends Activity
                     rand = new Tools_Random_number(parsetime, fragmentList.size());
                     // number 为获取到的随机数
                     number = rand.get_rand();
-                    Toast toast = Toast.makeText(getApplicationContext(), "时间片:" + parsetime + "ms\n\r"+"碎片号："+number, Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), "时间片:" + parsetime + "ms", Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.CENTER, 0, 0);
                     toast.show();
-                    // 测试用跳转，这要重写
+                    Intent intent = new Intent();
                     Bundle bundle = new Bundle();
                     bundle.putString("background", fragmentList.get(number).getImagepath());
                     bundle.putString("content", fragmentList.get(number).getContent());
-                    bundle.putInt("memory_no",memory_no);
-
-                    Intent intent = new Intent();
+                    bundle.putString("title",fragmentList.get(number).getTitle());
+                    bundle.putInt("memory_no", memory_no);
                     intent.putExtras(bundle);
-                    intent.setClass(FragmentView.this, RefreshView.class);
-                    startActivity(intent);
+                    intent.setClass(FragmentView.this, RefreshFragmentView.class);
+                    startActivityForResult(intent,2);
+                    overridePendingTransition(R.anim.default_anim_in, R.anim.default_anim_out);
+                    random_btn.clearAnimation();
                     break;
             }
             return true;

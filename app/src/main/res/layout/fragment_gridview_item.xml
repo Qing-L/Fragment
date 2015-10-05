@@ -28,7 +28,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="15dp"
             android:clickable="false"
-            android:textColor="#c0c0c0"
+            android:textColor="#7f8c8d"
             android:textSize="18sp"
             android:text="111"/>
 
@@ -42,7 +42,7 @@
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="10dp"
-                android:background="#c0c0c0">
+                android:background="#7f8c8d">
             </ImageView>
 
             <TextView
@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="5dp"
-                android:textColor="#c0c0c0"
+                android:textColor="#7f8c8d"
                 android:textSize="12sp"
                 android:text="2015-12-09"/>
         </LinearLayout>
@@ -63,6 +63,6 @@
         android:layout_height="1px"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:background="#c0c0c0" />
+        android:background="#7f8c8d" />
 
 </FrameLayout>

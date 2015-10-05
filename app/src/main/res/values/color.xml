@@ -33,6 +33,7 @@
     <color name="black">#000000</color> <!-- 黑色 -->
     <color name="gainsboro">#DCDCDC</color> <!-- 淡灰色 -->
     <color name="mistyrose">#FFE4E1</color> <!-- 浅玫瑰色 -->
+    <color name="fontcolor">#666666</color><!-- 灰色 -->
 
 
     <!-- 马卡隆色系 -->

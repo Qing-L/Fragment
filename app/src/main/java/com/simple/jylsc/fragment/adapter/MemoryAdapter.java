@@ -1,5 +1,6 @@
 package com.simple.jylsc.fragment.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -17,14 +18,11 @@ import android.view.View.OnLongClickListener;
 import com.simple.jylsc.fragment.R;
 import com.simple.jylsc.fragment.dao.model.Memory;
 import com.simple.jylsc.fragment.view.FragmentView;
-import com.simple.jylsc.fragment.view.MainActivity;
-import com.simple.jylsc.fragment.view.RefreshView;
 
 import org.litepal.crud.DataSupport;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 
 public class MemoryAdapter extends RecyclerView.Adapter<MemoryAdapter.MyViewHolder> {
@@ -133,11 +131,10 @@ public class MemoryAdapter extends RecyclerView.Adapter<MemoryAdapter.MyViewHold
                 public void onClick(View v) {
                     Intent intent=new Intent();
                     //Intent传递参数
-                    intent.putExtra("memory_no", getAdapterPosition()+1);
+                    intent.putExtra("memory_no", getAdapterPosition() + 1);
                     intent.setClass(context, FragmentView.class);
-                    context.startActivity(intent);
-
-
+                    ((Activity)context).startActivityForResult(intent, 0);
+                    ((Activity)context).overridePendingTransition(R.anim.default_anim_in, R.anim.default_anim_out);
                 }
             });
 

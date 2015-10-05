@@ -1,6 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#333333">
 
+    <FrameLayout
+        android:alpha="1"
+        android:id="@+id/id_MemoryHeaderImage"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_min_height"
+        android:background="@android:color/white"
+        android:layout_gravity="top">
 
-</LinearLayout>
+        <ImageView
+            android:id="@+id/id_fragment_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:layout_gravity="left"
+            android:src="@drawable/back"
+            />
+
+        <TextView
+            android:id="@+id/store_house_ptr_title"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text="Title"
+            android:textSize="25sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_gravity="center" />
+    </FrameLayout>
+
+    <in.srain.cube.views.ptr.PtrFrameLayout
+        android:id="@+id/store_house_ptr_frame"
+        xmlns:cube_ptr="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/id_MemoryHeaderImage"
+        android:background="@drawable/background_color"
+
+        cube_ptr:ptr_resistance="1.7"
+        cube_ptr:ptr_ratio_of_header_height_to_refresh="1.2"
+        cube_ptr:ptr_duration_to_close="300"
+        cube_ptr:ptr_duration_to_close_header="2000"
+        cube_ptr:ptr_keep_header_when_refresh="true"
+        cube_ptr:ptr_pull_to_fresh="true" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/store_house_ptr_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"/>
+            <TextView
+                android:id="@+id/store_house_ptr_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:textAlignment="center"
+                android:textColor="#7f8c8d"
+                android:textSize="30sp"
+                android:scrollbars="none"
+                android:padding="5dp"/>
+
+        </RelativeLayout>
+
+    </in.srain.cube.views.ptr.PtrFrameLayout>
+
+</RelativeLayout>

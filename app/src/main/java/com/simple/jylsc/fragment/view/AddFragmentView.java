@@ -16,7 +16,6 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.beardedhen.androidbootstrap.FontAwesomeText;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.download.ImageDownloader;
@@ -41,8 +40,8 @@ public class AddFragmentView extends Activity {
     private AddFragmentAdapter adapter;
     private List<String> imageList = new ArrayList<String>();
 
-    private FontAwesomeText back;
-    private FontAwesomeText add;
+    private ImageView back;
+    private ImageView add;
     private EditText editText;
     private ImageView imageView;
     DisplayImageOptions options;
@@ -56,8 +55,8 @@ public class AddFragmentView extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_fragment_layout);
 
-        add=(FontAwesomeText) this.findViewById(R.id.id_add_fragment_add);
-        back=(FontAwesomeText) this.findViewById(R.id.id_add_fragment_back);
+        add=(ImageView) this.findViewById(R.id.id_add_fragment_add);
+        back=(ImageView) this.findViewById(R.id.id_add_fragment_back);
         editText=(EditText) this.findViewById(R.id.id_add_fragment_edittext);
         gridview = (GridView) this.findViewById(R.id.id_add_fragment_gridview);
         imageView = (ImageView) this.findViewById(R.id.id_add_fragment_imageview);
@@ -94,10 +93,10 @@ public class AddFragmentView extends Activity {
 
     public void back()
     {
-        Intent intent = new Intent();
-        intent.putExtra("memory_no", memory_no);
-        intent.setClass(AddFragmentView.this,FragmentView.class);
-        startActivity(intent);
+        finishActivity(1);
+        overridePendingTransition(R.anim.default_anim_in, R.anim.default_anim_out);
+        AddFragmentView.this.finish();
+        System.gc();
     }
 
     View.OnClickListener back_click = new View.OnClickListener() {
@@ -139,7 +138,7 @@ public class AddFragmentView extends Activity {
 
         public void showDialog()
         {
-            LayoutInflater inflater = LayoutInflater.from(AddFragmentView.this);
+            final LayoutInflater inflater = LayoutInflater.from(AddFragmentView.this);
             View view = inflater.inflate(R.layout.dialog_addmemory_edittext, null);
             AlertDialog.Builder builder = new AlertDialog.Builder(AddFragmentView.this);
             builder.setView(view);
@@ -171,7 +170,13 @@ public class AddFragmentView extends Activity {
                         fragment.setImagepath(imageList.get(current_position));
                         fragment.setMemory(DataSupport.find(Memory.class, memory_no));
                         fragment.save();
-                        back();
+                        Intent intent = new Intent();
+                        intent.putExtra("memory_no",memory_no);
+                        intent.setClass(AddFragmentView.this,FragmentView.class);
+                        startActivity(intent);
+                        overridePendingTransition(R.anim.default_anim_in, R.anim.default_anim_out);
+                        AddFragmentView.this.finish();
+                        System.gc();
                         Toast.makeText(AddFragmentView.this, "Succeed", Toast.LENGTH_SHORT).show();
                     }//标题不为空
                 }

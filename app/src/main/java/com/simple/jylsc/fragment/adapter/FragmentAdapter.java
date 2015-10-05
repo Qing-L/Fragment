@@ -10,13 +10,11 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.beardedhen.androidbootstrap.BootstrapThumbnail;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.simple.jylsc.fragment.R;
 import com.simple.jylsc.fragment.dao.model.Fragment;
 
-import java.util.Date;
 import java.util.List;
 
 /**
