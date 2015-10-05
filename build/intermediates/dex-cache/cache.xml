@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="D:\Documents\Android Studio\Fragment\app\src\libs\litepal-1.2.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="36e5b16977b343ddce8966e1362256ef1b3baf2d">
+        <dex dex="D:\Documents\Android Studio\Fragment\app\build\intermediates\pre-dexed\debug\litepal-1.2.1-7e45b1b22f7cf71843fad56f1b116e6d1669e66b.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="D:\Documents\Android Studio\Fragment\app\build\intermediates\pre-dexed\debug\library-2.4.0-dd460f45d27a359687729c3c169358b1eda3100b.jar" />
+    </item>
+    <item
+        jar="D:\Documents\Android Studio\Fragment\app\build\intermediates\exploded-aar\in.srain.cube\cube-sdk\1.0.44\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ab3e30bc50e6b7f859b4971bfc897cd107a7b6c5">
+        <dex dex="D:\Documents\Android Studio\Fragment\app\build\intermediates\pre-dexed\debug\classes-9f8d3b6c7ef6d1dbbceb4ed215593bbc04518254.jar" />
+    </item>
+    <item
+        jar="D:\Documents\Android Studio\Fragment\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
+        <dex dex="D:\Documents\Android Studio\Fragment\app\build\intermediates\pre-dexed\debug\classes-e2c89d9bbf8baefaceb8e7a34a656b12aa31b2e2.jar" />
+    </item>
+    <item
+        jar="D:\Documents\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.1.1\support-annotations-22.1.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
+        <dex dex="D:\Documents\Android Studio\Fragment\app\build\intermediates\pre-dexed\debug\support-annotations-22.1.1-4e6e0b702b3b65e913265debc38e36d53bc1b25f.jar" />
+    </item>
+    <item
+        jar="D:\Documents\Android Studio\Fragment\app\src\libs\universal-image-loader-1.9.4.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="dd9eeb557650c4ad7394df23f0f5cf27a7cfc697">
+        <dex dex="D:\Documents\Android Studio\Fragment\app\build\intermediates\pre-dexed\debug\universal-image-loader-1.9.4-7baa54be194ab99679680818c638a2d90460adb9.jar" />
+    </item>
+    <item
+        jar="D:\Documents\Android Studio\Fragment\app\build\intermediates\exploded-aar\in.srain.cube\ultra-ptr\1.0.11\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a0bdf70123d26dd83d8462d602b3a83a41934cf6">
+        <dex dex="D:\Documents\Android Studio\Fragment\app\build\intermediates\pre-dexed\debug\classes-1f335eddf9bdb41fc3bdbcfebde8d3a18a118111.jar" />
+    </item>
+    <item
+        jar="D:\Documents\Android Studio\Fragment\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\22.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e0b0c35d02308b270015a74cada4887e2e49b889">
+        <dex dex="D:\Documents\Android Studio\Fragment\app\build\intermediates\pre-dexed\debug\classes-506f6a35e1b49ef73f26d6960f458a22b9ca6ee9.jar" />
+    </item>
+    <item
+        jar="D:\Documents\Android Studio\Fragment\app\build\intermediates\exploded-aar\com.beardedhen\androidbootstrap\1.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="02e6e29c7f18acd2aedec7ae1fa3c53cb37e2a33">
+        <dex dex="D:\Documents\Android Studio\Fragment\app\build\intermediates\pre-dexed\debug\classes-360af6f269ee11de30b902f7766d13e490433514.jar" />
+    </item>
+    <item
+        jar="D:\Documents\Android Studio\Fragment\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a3ff3c506644c820eb2bdf06e8339f72be578551">
+        <dex dex="D:\Documents\Android Studio\Fragment\app\build\intermediates\pre-dexed\debug\classes-8f1d7b4a758c2ca400c501fce912d533efffb28c.jar" />
+    </item>
+    <item
+        jar="D:\Documents\Android Studio\Fragment\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\jars\libs\internal_impl-22.1.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
+        <dex dex="D:\Documents\Android Studio\Fragment\app\build\intermediates\pre-dexed\debug\internal_impl-22.1.1-3538ff38f0a33cd06a418e44a064bbd18922cf14.jar" />
+    </item>
+    <item
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\in.srain.cube\clog\1.0.2\4b857e5d62a7243e74fd0307639fff5a54f8f030\clog-1.0.2.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4b857e5d62a7243e74fd0307639fff5a54f8f030">
+        <dex dex="D:\Documents\Android Studio\Fragment\app\build\intermediates\pre-dexed\debug\clog-1.0.2-6d277bd8343d0a74f75e10a52e2376e79db4b2d1.jar" />
+    </item>
+
+</items>
